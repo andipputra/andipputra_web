@@ -7,10 +7,10 @@ class AppTheme {
 
     return baseTheme.copyWith(
       colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.amber,
+        seedColor: Colors.redAccent,
       ),
       useMaterial3: true,
-      textTheme: GoogleFonts.latoTextTheme(baseTheme.textTheme),
+      textTheme: GoogleFonts.workSansTextTheme(baseTheme.textTheme),
     );
   }
 }
