@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeAppbar extends StatelessWidget {
   const HomeAppbar({super.key});
@@ -20,7 +21,9 @@ class HomeAppbar extends StatelessWidget {
           child: Center(
             child: Text(
               'Andi Pratama Putra Portfolio',
-              style: Theme.of(context).textTheme.displaySmall,
+              style: context.showNavbar
+                  ? Theme.of(context).textTheme.displaySmall
+                  : Theme.of(context).textTheme.titleLarge,
             ),
           ),
         ),

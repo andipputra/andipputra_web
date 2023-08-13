@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ExperienceBodyComponent extends StatelessWidget {
   const ExperienceBodyComponent({super.key});
@@ -6,10 +7,7 @@ class ExperienceBodyComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: const EdgeInsets.only(
-        right: 16,
-        bottom: 16,
-      ),
+      padding: const EdgeInsets.all(16),
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
         elevation: 2,
@@ -22,26 +20,38 @@ class ExperienceBodyComponent extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    'Juni 2022 - Now',
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                    textAlign: TextAlign.end,
+                if (context.showNavbar) ...[
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      'November 2022\n-\nDesember 2023',
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                      textAlign: TextAlign.end,
+                    ),
                   ),
-                ),
-                VerticalDivider(
-                  thickness: 1,
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                ),
+                  VerticalDivider(
+                    thickness: 1,
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  ),
+                ],
                 Expanded(
                   flex: 7,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      if (!context.showNavbar) ...[
+                        Text(
+                          'November 2022 - Desember 2023',
+                          style: Theme.of(context).textTheme.titleSmall,
+                          textAlign: TextAlign.end,
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                      ],
                       Text(
                         'Pocket.co.id',
                         style:
